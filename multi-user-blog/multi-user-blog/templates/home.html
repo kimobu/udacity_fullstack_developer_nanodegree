@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+KimoBlog
+{% endblock %}
+{% block content %}
+    {% for blog in blogs %}
+    <div class="blog-post">
+        <div class="blog-subject">
+            <h3><a href="/blog/{{blog.key.id()}}">{{ blog.subject }}</a></h3>
+            {{ blog.date }}
+        </div>
+        <div class="blog-body">
+            <p>{{ blog.body }}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Neighborhood Map</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav>
+      <ul class="side-nav fixed hide-on-med-and-down">
+        <li class="header">Locations</li>
+        <li class="search">
+          <div class="search-wrapper">
+            <input placeholder="Filter" data-bind="value: current_filter, valueUpdate: 'keyup'" type="text" name="filter">
+          </div>
+        </li>
+        <!-- ko foreach: filter -->
+        <li><a data-bind="text: displayName(), click: $root.goToLocation, css: { active: active }"></a></li>
+        <!-- /ko -->
+      </ul>
+      <ul id="slide-out" class="side-nav fixed">
+        <li class="header">Locations</li>
+        <li class="search">
+          <div class="search-wrapper">
+            <input placeholder="Filter" data-bind="value: current_filter, valueUpdate: 'keyup'" type="text" name="filter">
+          </div>
+        </li>
+        <!-- ko foreach: filter -->
+        <li><a data-bind="text: displayName(), click: $root.goToLocation, css: { active: active }"></a></li>
+        <!-- /ko -->
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    </nav>
+    <main>
+      <div id="map-container"></div>
+    </main>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js" onerror="loadError('Knockout')"></script>
+    <script src="OAuth.js"></script> <!-- from https://raw.githubusercontent.com/rmxdave/phnx/master/lib/OAuth -->
+    <script src="SHA1.js"></script> <!-- from https://raw.githubusercontent.com/rmxdave/phnx/master/lib/OAuth -->
+    <script src="app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACFLhU7jtDfHpl3BxLpmPvmUgPSHMCloM&callback=initMap" onerror="loadError('Google Maps')"></script>
+  </body>
+</html>

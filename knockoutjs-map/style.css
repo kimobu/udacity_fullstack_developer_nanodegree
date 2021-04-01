@@ -1,0 +1,19 @@
+
+#map-container { /* make the map full screen */
+  height: calc(100vh - 64px);
+  width: 100%;
+}
+#controls { /* ensure this div appears on top of the map */
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+a.active {
+  background-color: rgba(0,0,0,0.1);
+}
+.header {
+  color: #ccc;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+}
